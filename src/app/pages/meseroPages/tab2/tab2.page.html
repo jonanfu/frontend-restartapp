@@ -1,0 +1,40 @@
+<ion-header class="animated fadeIn fast">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Menú disponible
+    </ion-title>
+    <ion-card-subtitle class="ion-text-center">
+      {{today | date}}
+    </ion-card-subtitle>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color ="secondary" class="animated fadeIn fast">
+
+
+  <ion-list *ngFor="let item of plato" class="ion-text-center">
+    <ion-card-title>
+      {{item.nombreCat}}
+    </ion-card-title>
+
+    <ion-row *ngFor="let i of item.articulos">
+      <ion-col >
+        <ion-item class="ion-no-padding" color="secondary">
+          <ion-card-content>
+            <h2>{{i.nombreArt}}</h2>
+          </ion-card-content>
+        </ion-item>
+      
+        <ion-item class="ion-no-padding" lines="none" color="medium" >
+          <ion-card-content class="ion-no-padding" slot="end" >
+            <h2>${{ i.precio }}</h2>
+          </ion-card-content>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-list>
+
+</ion-content>

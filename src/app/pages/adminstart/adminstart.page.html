@@ -1,0 +1,136 @@
+<style>
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+  }
+
+  .swiper-slide {
+    display: block;
+  }
+
+  ion-slide>h2 {
+    margin-top: 2.8rem;
+  }
+
+  ion-slide>img {
+    max-height: 50%;
+    max-width: 60%;
+    margin: 0px 0;
+  }
+</style>
+
+<ion-app fullscreen>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title class="ion-text-center ion-text-lg-capitalize">Datos generales</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="animated fadeIn fast"> 
+
+    <form (ngSubmit)="recogerData()" #fRestaurant="ngForm">
+
+      <ion-slides pager="false" #slideNext>
+
+        <ion-slide>
+          <img src="/assets/blueprint.png" class="img" />
+          <h5>¿Cuál es el nombre del restaurante?</h5>
+
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Nombre:</ion-label>
+              <ion-input [(ngModel)]="data.nombreRes" name="nombreRes" required></ion-input>
+            </ion-item>
+
+            <h5>¿Cuál es el RUC/Cédula de identidad?</h5>
+            <ion-item>
+              <ion-label position="floating">RUC:</ion-label>
+              <ion-input [(ngModel)]="data.ruc" name="text" required></ion-input>
+            </ion-item>
+
+            <h5>¿Cuál es el teléfono?</h5>
+            <ion-item>
+              <ion-label position="floating">Teléfono:</ion-label>
+              <ion-input [(ngModel)]="data.telefono" type="tel" name="telefono" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-slide>
+
+        <ion-slide>
+          <img src="/assets/map-location.png" class="img" />
+          <h5>¿En dónde está ubicado?</h5>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Ciudad:</ion-label>
+                  <ion-input [(ngModel)]="data.ciudad" type="text" name="ciudad" required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Dirección:</ion-label>
+                  <ion-input [(ngModel)]="data.direccion" name="direccion" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+
+        <ion-slide>
+          <img src="/assets/network.png" class="img" />
+          <h5>¿Cuántas mesas tiene el restaurante?</h5>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-label>Cantidad de mesas:</ion-label>
+                  <ion-input [(ngModel)]="data.mesas" type="number" name="cantMesas" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+
+
+
+        <ion-slide>
+          <img src="/assets/file-1.png" />
+          <h5>¿Qué menú ofrece?</h5>
+          <h3>Debe ingresar por lo menos una categoría</h3>
+          <ion-button shape="round" expand="full" color="secondary" (click)="addArticulo()">
+            Agregar artículo al menú
+            <ion-icon slot="end" name="person-add"></ion-icon>
+          </ion-button>
+        </ion-slide>
+
+        <ion-slide>
+          <img src="/assets/like.png" />
+          <h2>Si todos los campos están completos, puede comenzar</h2>
+          <ion-button color="success" shape="round" expand="full" (click)="recogerData()"
+            [disabled]="fRestaurant.invalid">
+            Comenzar <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-slide>
+      </ion-slides>
+
+    </form>
+
+
+    <ion-footer>
+
+
+      <ion-button (click)="siguiente()" 
+                  shape="round"
+                  expand="full" 
+                  size="big"
+                  fill="outline"
+                  color="primary"
+                  slot="end">
+        Continuar
+      </ion-button>
+
+
+
+    </ion-footer>
+  </ion-content>
+
+</ion-app>

@@ -1,0 +1,67 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label ><h2>Volver</h2></ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="animated fadeIn fast">
+  <ion-row class="top-20">
+    <ion-col size="12" class="ion-text-center">
+      <ion-label>
+        <h1>Actualizar perfil - Mesero</h1>
+      </ion-label>
+      <img src="/assets/perfil.jpg" class="img" />
+    </ion-col>
+  </ion-row>
+
+  <form (ngSubmit)="actualizarData()">
+      <ion-row>
+        <ion-col>
+          
+            <ion-list>
+              
+              <ion-item>
+                <ion-label  position = "floating">Nombre</ion-label>
+                <ion-input [(ngModel)]="data.nombre"
+                           name="nombre"
+                           type="text"
+                           required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position = "floating">Apellido</ion-label>
+                <ion-input [(ngModel)]="data.apellido"
+                           name="apellido"
+                           type="text"
+                           required></ion-input>
+              </ion-item>              
+              <ion-item>
+                <ion-label position = "floating">Email</ion-label>
+                <ion-input [(ngModel)]="data.email"
+                           name="email"
+                           type="email"
+                           required></ion-input>
+              </ion-item>
+
+            </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button type="submit"
+                      color="tertiary"
+                      shape="round">
+          Actualizar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+
+
+</ion-content>

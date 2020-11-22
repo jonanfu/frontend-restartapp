@@ -1,0 +1,45 @@
+<ion-header class="animated fadeIn fast">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Pedidos tomados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background animated fadeIn fast">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let item of pedido" color="light">
+    
+    <ion-card-header color="secondary" class="ion-no-padding">
+      <ion-item color="secondary" lines="none">
+        <ion-button (click)="enviarPed(item)" slot="end" fill="outline" color="light">
+          Pedido Listo
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+        <ion-card-title>Mesa: {{item.mesa}}</ion-card-title>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content *ngFor="let i of item.nombrePlato_Precio" class="ion-no-padding" color="light">
+      <ion-card-subtitle class="ion-no-padding" color="light">
+        <h1><b>{{i.cantidad}}</b> {{i.nombreArt}} </h1>        
+      </ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content color="light" >
+      <h4><b>Notas: </b> {{item.notas}}</h4>
+      <h4><b>Por: </b> {{item.usuario.nombre}} {{item.usuario.apellido}}</h4>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item *ngIf="pedido.length === 0">
+    <ion-card-title >No hay pedidos tomados por el momento</ion-card-title>
+    <ion-icon slot="start" name="cloud-done"></ion-icon>
+  </ion-item>
+
+
+</ion-content>

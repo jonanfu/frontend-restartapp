@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Agregar una categoría
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarMod()">
+        <ion-icon slot="end" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen >
+  <ion-card class="welcome-card">
+    <!-- <img src="/assets/principal.png" alt="" /> -->
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Puede crear categorías del menú con al menos un artículo
+      </ion-card-title>
+    </ion-card-header>
+     
+    <ion-card-content>
+
+      <h2 class="ion-text-center">
+        <b>
+          Más adelante podrá ingresar más artículos en la categoría...
+        </b>
+
+      </h2>
+    </ion-card-content>
+
+    <ion-card> 
+      <img src="/assets/happy2.jpg" class="img" />
+    </ion-card>  
+  </ion-card>
+
+  <form (ngSubmit)="agregarCat()" #fCategoria="ngForm">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Ingrese la categoría</ion-label>
+        <ion-icon slot="start" name="paper"></ion-icon>
+
+        <ion-input name="nombrecat"
+                   type="text"
+                   [(ngModel)]="arts.nombreCat"                    
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ingrese el artículo</ion-label>
+        <ion-icon slot="start" name="pizza"></ion-icon>
+
+        <ion-input name="nombreart" 
+                    type="text"
+                   [(ngModel)]="arts.articulos.nombreArt" 
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label >Ingrese el precio</ion-label>
+        <ion-icon slot="start" name="cash"></ion-icon>
+
+        <ion-input name="precio"   
+                   type="number"                
+                   [(ngModel)]="arts.articulos.precio" 
+                   required></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+      <ion-button type="submit" 
+                  color="secondary" 
+                  shape="round" 
+                  expand="full"
+                  [disabled] = "fCategoria.invalid">
+        <ion-icon slot="end" name="done-all"></ion-icon>
+        Crear categoría
+      </ion-button>
+    
+
+  </form>
+
+
+
+
+</ion-content>

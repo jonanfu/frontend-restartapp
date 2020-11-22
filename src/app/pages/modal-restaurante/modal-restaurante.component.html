@@ -1,0 +1,66 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="arrow-round-back">        
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label ><h2>Volver</h2></ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row >
+    <ion-col size="12" class="ion-text-center">
+      <ion-label>
+        <h1>Actualizar datos del local</h1>
+      </ion-label>
+      <img src="/assets/restaurante.png" class="img" />
+    </ion-col>
+  </ion-row>
+
+  <form  (ngSubmit)="actualizarRest()" #fRestaurante = "ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nombre restaurante</ion-label>
+            <ion-input [(ngModel)]="datos.nombreRes" name="nombreLocal" style="text-transform: capitalize;" type="text" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">RUC</ion-label>
+            <ion-input [(ngModel)]="datos.ruc" name="ruc" style="text-transform: capitalize;" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Teléfono</ion-label>
+            <ion-input [(ngModel)]="datos.telefono" name="telefono" style="text-transform: capitalize;" type="tel" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Ciudad</ion-label>
+            <ion-input [(ngModel)]="datos.ciudad" name="ciudad" style="text-transform: capitalize;" type="text" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Dirección</ion-label>
+            <ion-input [(ngModel)]="datos.direccion" name="direccion" style="text-transform: capitalize;" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label >Mesas</ion-label>
+            <ion-input [(ngModel)]="datos.mesas" name="mesas" type="number" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button type="submit" 
+                    [disabled]="fRestaurante.invalid"
+                    color="tertiary"
+                    shape="round">
+          Actualizar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

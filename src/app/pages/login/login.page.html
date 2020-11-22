@@ -1,0 +1,186 @@
+<style>
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+  }
+
+  header {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.25em;
+    text-transform: uppercase;
+  }
+
+  section {
+    margin-top: 5em;
+    margin-bottom: 2.5em;
+  }
+
+  section:not(.full-width),
+  .full-width>header {
+    padding: 0 10px;
+  }
+</style>
+<ion-app>
+
+
+  <ion-content fullscreen>
+
+    <ion-card class="welcome-card">
+      <img src="/assets/principal.png" alt="" />
+      <ion-card-header>
+        <ion-card-title class="ion-text-center ion-text-lg-capitalize">Bienvenido a RestaurApp</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-slides #slidePrincipal>
+
+      <ion-slide>
+
+        <form (ngSubmit)="verifiLog(); fLogin.reset()" #fLogin="ngForm">
+          <ion-list>
+
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-icon slot="start" name="contact"></ion-icon>
+
+              <ion-input name="usuario"
+                          type="email" 
+                          [(ngModel)]="loginUser.email" 
+                          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                          required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating" >Contraseña</ion-label>
+              <ion-icon slot="start" name="lock"></ion-icon>
+              <ion-input name="password" type="password" [(ngModel)]="loginUser.contrasena" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+          <section class="full-width">
+            <ion-button type="submit" color="warning" shape="round" >
+              Iniciar sesión
+            </ion-button>
+          </section>
+        </form>
+
+      </ion-slide>
+
+      <ion-slide>
+
+        <ion-grid fixed>
+          <form (ngSubmit)="verifiReg(); fRegistro.reset()" #fRegistro="ngForm">
+            <ion-row>
+              <ion-col>
+
+                <ion-list>
+
+                  <ion-item>
+                    <ion-label position="floating" >Nombre</ion-label>
+                    <ion-input name="nombre" type="text" style="text-transform: capitalize;" [(ngModel)]="registerUser.nombre" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label position="floating">Apellido</ion-label>
+                    <ion-input name="apellido" type="text" style="text-transform: capitalize;" [(ngModel)]="registerUser.apellido" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Rol</ion-label>
+                    <ion-select cancelText='Cancelar' 
+                                okText='Aceptar' 
+                                [(ngModel)]="rol"
+                                name="rolUser"
+                                (ionChange)="onChange( $event )"
+                                [interfaceOptions]="opcionesSelec">
+
+                      <ion-select-option *ngFor="let roles of rolesUser"
+                                          [value]="roles.rol" 
+                                          required>{{roles.rol}}</ion-select-option>
+                      
+                    </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input name="email"
+                               type="email"
+                               [(ngModel)]="registerUser.email"
+                               pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                               required>
+                    </ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input name="contrasena" type="password" [(ngModel)]="registerUser.contrasena" required>
+                    </ion-input>
+                  </ion-item>
+
+                </ion-list>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit"
+                            color="warning"
+                            [disabled]="fRegistro.invalid"
+                            shape="round"
+                            >
+                  Crear usuario
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+        </ion-grid>
+
+      </ion-slide>
+
+
+    </ion-slides>
+
+
+
+
+  </ion-content>
+
+  <ion-footer no-border>
+    <ion-toolbar>
+      
+      <ion-row>
+  
+        <ion-col>
+            <ion-button shape="round"
+                        expand="full"
+                        size="small"
+                        fill="outline"
+                        color="warning"
+                        (click)="mostrarRegistro()">
+              Ingresar
+            </ion-button>
+        </ion-col>
+  
+        <ion-col>
+          <ion-button shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="warning"
+                      (click)="mostrarLogin()">
+            Registrarme 
+          </ion-button>
+        </ion-col>
+  
+      </ion-row>
+  
+  
+  
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-app>

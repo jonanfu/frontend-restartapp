@@ -1,0 +1,53 @@
+<style>
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+  }
+
+  .swiper-slide {
+    display: block;
+  }
+
+  ion-slide>h2 {
+    margin-top: 2.8rem;
+  }
+
+  ion-slide>img {
+    max-height: 50%;
+    max-width: 60%;
+    margin: 36px 0;
+  }
+</style>
+
+<ion-app>
+  
+
+  <ion-content class="animated fadeIn fast">
+    <ion-slides pager="true" >
+
+      <ion-slide>
+        <img src="assets/icono.png" />
+        <h1>¡Bienvenido a <b>RestaurApp</b>!</h1>
+        <p>Gracias por descargar RestaurApp. <br> Esta aplicación móvil está diseñada para la toma
+          de pedidos en restaurantes.</p>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="assets/tiempo.png" />
+        <h1>¿Cómo funciona?</h1>
+        <p><b>RestaurApp</b> envía los pedidos del menú comunicando dos o más dispositivos que estén en
+          una misma red local.</p>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="assets/star.png" />
+        <h1>¿Listo para empezar?</h1>
+        <ion-button color="dark" shape="round" (click)="finish()">Continuar <ion-icon slot="end" name="arrow-forward">
+          <!-- routerLink="/login" -->
+          </ion-icon>
+        </ion-button>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-content>
+</ion-app>

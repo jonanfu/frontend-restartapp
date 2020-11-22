@@ -1,0 +1,54 @@
+<ion-header class="animated fadeIn fast">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Cuenta
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<style>
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+  }
+</style>
+
+
+<ion-content class="animated fadeIn fast">
+  <ion-app>
+    <ion-content>
+      <ion-list>
+        <br>
+
+        <ion-item (click)="cerrarSes()">
+          <ion-icon name="exit" slot="start"></ion-icon>
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
+        <br>
+        <ion-item (click)="modalPerfil()">
+          <ion-icon name="brush" slot="start"></ion-icon>
+          <ion-label>Editar perfil</ion-label>
+        </ion-item>
+        <br>
+        <ion-item (click)="verPerfil()">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Ver perfil</ion-label>
+        </ion-item>
+        <br>
+        <ion-item (click)="modalRestaurante()">
+          <ion-icon name="brush" slot="start"></ion-icon>
+          <ion-label>Editar restaurante</ion-label>
+        </ion-item>
+        <br>
+        <ion-item (click)="verRestaurante()">
+          <ion-icon name="restaurant" slot="start"></ion-icon>
+          <ion-label>Ver restaurante</ion-label>
+        </ion-item>
+        <br>
+     
+        
+
+      </ion-list>
+    </ion-content>
+  </ion-app>
+
+</ion-content>

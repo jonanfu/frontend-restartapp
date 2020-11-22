@@ -1,0 +1,40 @@
+<ion-header class="animated fadeIn fast">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Personal registrado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="animated fadeIn fast">
+
+  <ion-list *ngFor="let users of usuario; let i = index">
+
+    <ion-grid>
+      <ion-item lines="none" color="primary" class="ion-no-margin ion-no-padding">
+        <ion-card-header  color="primary">
+          <ion-card-subtitle> <h4><b>Usuario {{i+1}}</b></h4> </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-button color="light" slot="end" (click)="confirmEliminarAlert(users.email)">
+          <ion-label>Dar de baja</ion-label>
+          <ion-icon slot="icon-only" color="danger" slot="end" name="alert"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label> <b>Nombres: </b> {{users.nombre}} {{users.apellido}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><b>Email: </b> {{users.email}} </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label> <b>Rol: </b> {{users.rol}} </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-grid>
+
+  </ion-list>
+
+</ion-content>

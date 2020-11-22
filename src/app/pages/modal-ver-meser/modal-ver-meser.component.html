@@ -1,0 +1,75 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label>
+      <h2>Volver </h2>
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="animated fadeIn fast" >
+  <ion-row>
+    <ion-col size="12" class="ion-text-center">
+
+      <h2>Mi perfil - Mesero</h2>
+      <img src="/assets/perfil.jpg" class="img">
+
+    </ion-col>
+  </ion-row>
+
+  <ion-list >
+
+    <ion-row class="ion-text-center">
+      <ion-col size="5">
+        <ion-item>
+          <h6>Nombre</h6>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="7">
+        <ion-item>
+          <ion-label> {{usuario.nombre}} {{usuario.apellido}} </ion-label>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row class="ion-text-center" >
+
+      <ion-col size="5">
+        <ion-item>
+
+          <h6>Email</h6>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="7">
+        <ion-item>
+          <ion-label>{{usuario.email}}</ion-label>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col size="5">
+        <ion-item>
+          <h6>Rol</h6>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="7">
+        <ion-item>
+          <ion-label> {{usuario.rol}}</ion-label>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-list>
+
+</ion-content>
